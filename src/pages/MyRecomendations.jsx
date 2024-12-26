@@ -41,8 +41,8 @@ const MyRecommendations = () => {
         <tbody>
           {recommendations.map(rec => (
             <tr key={rec._id}>
-              <td className="border border-gray-300 px-4 py-2">{rec.recommendationTitle}</td>
-              <td className="border border-gray-300 px-4 py-2">{rec.recommendedProductName}</td>
+              <td className="border border-gray-300 px-4 py-2">{rec.title}</td>
+              <td className="border border-gray-300 px-4 py-2">{rec.productName}</td>
               <td className="border border-gray-300 px-4 py-2">{rec.date}</td>
               <td className="border border-gray-300 px-4 py-2">
                 <button

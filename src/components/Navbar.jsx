@@ -84,6 +84,21 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box relative z-10 mt-3 w-52 p-2 shadow">
               {links}
+
+              {user && user?.email ? (
+    <button
+      onClick={()=>handleSignOut()}
+      className="btn btn-neutral rounded-2xl ml-4 bg-red-600"
+    >
+      Log Out
+    </button>
+     ) : (
+    <Link to="/login" className="btn btn-neutral rounded-2xl ml-4 bg-green-400">
+      Login
+    </Link>
+  )}
+
+              
               </ul>
             </div>
          
@@ -100,6 +115,7 @@ const Navbar = () => {
           <div className="navbar-center  hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
              {links}
+ 
             </ul>
 
 

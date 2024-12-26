@@ -40,6 +40,8 @@ const QueryDetails = () => {
       .catch((error) => toast.error('Failed to fetch recommendations.'));
   }, [id]);
 
+
+  console.log(queryDetails.productName);
   // Handle form input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,14 +55,17 @@ const QueryDetails = () => {
       ...formData,
       queryId: id,
       queryTitle: queryDetails.queryTitle,
-      productName: queryDetails.productName,
+      productName: queryDetails.productBrand,
       userEmail: queryDetails.email,
-      userName: queryDetails.name,
+      userName: queryDetails. name,
       recommenderEmail: user.email,
       recommenderName: user.displayName,
       date: new Date().toLocaleString(),
+     
     };
-
+    
+   
+    
     fetch(`http://localhost:5000/recommendations`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
