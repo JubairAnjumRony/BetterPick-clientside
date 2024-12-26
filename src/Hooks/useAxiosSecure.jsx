@@ -6,7 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'https://server-site-rust.vercel.app/',
+    baseURL: 'https://server-site-rust.vercel.app',
     withCredentials: true
 });
 

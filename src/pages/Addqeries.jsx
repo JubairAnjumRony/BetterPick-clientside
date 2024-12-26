@@ -35,7 +35,7 @@ const Addqeries = () => {
         recommendationCount: 0,
       };
 
-      fetch('https://server-site-rust.vercel.app//queries',{
+      fetch('https://server-site-rust.vercel.app/queries',{
         method:'POST',
         headers:{
         'Content-Type': 'application/json',

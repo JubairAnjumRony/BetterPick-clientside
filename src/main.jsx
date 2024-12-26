@@ -31,7 +31,7 @@ const router = createBrowserRouter([
           {
             path:"/",
             element: <Home/>,
-             loader: () => fetch('https://server-site-rust.vercel.app//queries'),
+             loader: () => fetch('https://server-site-rust.vercel.app/queries'),
           },
           {
             path:"/login",
@@ -66,13 +66,13 @@ const router = createBrowserRouter([
          {
           path:"queryDetails/:id",
           element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`https://server-site-rust.vercel.app//querie/${params.id}`)
+          loader: ({params}) => fetch(`https://server-site-rust.vercel.app/querie/${params.id}`)
          },
 
          {
           path:"updatequeries/:id",
           element:<PrivateRoute><UpdateQueries></UpdateQueries></PrivateRoute>,
-          loader: ({params}) => fetch(`https://server-site-rust.vercel.app//querie/${params.id}`)
+          loader: ({params}) => fetch(`https://server-site-rust.vercel.app/querie/${params.id}`)
          }
 
       ]

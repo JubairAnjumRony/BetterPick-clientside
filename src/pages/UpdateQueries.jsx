@@ -70,7 +70,7 @@ const UpdateEquipments = () => {
       console.log(updatedData);
     
   
-      fetch(`https://server-site-rust.vercel.app//queries-update/${loadUser._id}`, {
+      fetch(`https://server-site-rust.vercel.app/queries-update/${loadUser._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedData),
