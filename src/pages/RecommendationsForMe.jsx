@@ -9,7 +9,7 @@ const RecommendationsForMe = () => {
 
   //   // Fetch the query details
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/queries/${id}`)
+  //   fetch(`https://server-site-rust.vercel.app//queries/${id}`)
   //     .then((res) => res.json())
   //     .then((data) =>
   //        setQueryDetails(data))
@@ -17,7 +17,7 @@ const RecommendationsForMe = () => {
   // }, [id]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/recommendationsForMe/${user.email}`)
+    fetch(`https://server-site-rust.vercel.app//recommendationsForMe/${user.email}`)
       .then(res => res.json())
       .then(data => setRecommendations(data))
       .catch(err => console.error(err));

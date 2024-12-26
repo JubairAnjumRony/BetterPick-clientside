@@ -25,7 +25,7 @@ const QueryDetails = () => {
 
   // Fetch the query details
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/queries/${id}`)
+  //   fetch(`https://server-site-rust.vercel.app//queries/${id}`)
   //     .then((res) => res.json())
   //     .then((data) =>
   //        setQueryDetails(data))
@@ -34,7 +34,7 @@ const QueryDetails = () => {
 
   // Fetch all recommendations for this query
   useEffect(() => {
-    fetch(`http://localhost:5000/recommendations/${id}`)
+    fetch(`https://server-site-rust.vercel.app//recommendations/${id}`)
       .then((res) => res.json())
       .then((data) => setRecommendations(data))
       .catch((error) => toast.error('Failed to fetch recommendations.'));
@@ -66,7 +66,7 @@ const QueryDetails = () => {
     
    
     
-    fetch(`http://localhost:5000/recommendations`, {
+    fetch(`https://server-site-rust.vercel.app//recommendations`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(recommendationData),
@@ -88,7 +88,7 @@ const QueryDetails = () => {
        }));
  
        // Update recommendation count on the server
-       fetch(`http://localhost:5000/queries/increment/${id}`, {
+       fetch(`https://server-site-rust.vercel.app//queries/increment/${id}`, {
          method: 'PATCH',
        }).catch((error) => console.error('Failed to increment recommendation count:', error));
      })

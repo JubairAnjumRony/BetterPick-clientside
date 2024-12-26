@@ -13,7 +13,7 @@
 
 
 // //   const fetchAllServices = async ()=>{
-// //     const {data} = await axios.get(http://localhost:5000/queries?filter=${filter}&search=${search},
+// //     const {data} = await axios.get(https://server-site-rust.vercel.app//queries?filter=${filter}&search=${search},
 // //       {
 // //         withCredentials: true,  // Include cookies or credentials in the request
 // //       }
@@ -25,7 +25,7 @@
 
 
 // // useEffect(()=>{
-// //   fetch(`http://localhost:5000/queries?searchParams=${search}`)
+// //   fetch(`https://server-site-rust.vercel.app//queries?searchParams=${search}`)
 // //   .then((res)=>res.json())
 // //   .then((data)=>{
 // //     setQueries(data)
@@ -40,7 +40,7 @@
 // useEffect(() => {
 //   const fetchQueries = async () => {
 //     try {
-//       const res = await fetch(`http://localhost:5000/queries?searchParams=${search}`);
+//       const res = await fetch(`https://server-site-rust.vercel.app//queries?searchParams=${search}`);
 //       const data = await res.json();
 //       setQueries(data);
 //       console.log(data);
@@ -63,7 +63,7 @@
    
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/queries")
+//     fetch("https://server-site-rust.vercel.app//queries")
 //       .then((res) => res.json())
 //       .then((data) => {
 //         // Sort queries in descending order by date
@@ -186,7 +186,7 @@ const AllQueries = () => {
   useEffect(() => {
     const fetchQueries = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/queries?searchParams=${search}`);
+        const res = await fetch(`https://server-site-rust.vercel.app//queries?searchParams=${search}`);
         const data = await res.json();
         setQueries(data);
         console.log(data);

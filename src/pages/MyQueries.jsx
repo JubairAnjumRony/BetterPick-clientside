@@ -14,7 +14,7 @@
      
 //        useEffect(() => {
 //         console.log("userEMailis:",user?.email)
-//          fetch(`http://localhost:5000/queries/${user.email}`)
+//          fetch(`https://server-site-rust.vercel.app//queries/${user.email}`)
 //            .then((res) => res.json())
 //            .then((data) => {
 //             console.log("data is:",data);
@@ -54,7 +54,7 @@
 //        }).then((result) => {
 //            if (result.isConfirmed) {
 //        // if (confirm("Are you sure you want to delete this equipment?")) 
-//          fetch(`http://localhost:5000/queries/${id}`, {
+//          fetch(`https://server-site-rust.vercel.app//queries/${id}`, {
 //            method: "DELETE",
 //          })
 //            .then((res) => res.json())
@@ -156,7 +156,7 @@ const MyQueries = () => {
   useEffect(() => {
 
     if (user?.email) {
-      fetch(`http://localhost:5000/queries/${user.email}`)
+      fetch(`https://server-site-rust.vercel.app//queries/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setEquipments(data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))); // Sort by timestamp descending
@@ -177,7 +177,7 @@ const MyQueries = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete-queries/${id}`, { method: 'DELETE' })
+        fetch(`https://server-site-rust.vercel.app//delete-queries/${id}`, { method: 'DELETE' })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

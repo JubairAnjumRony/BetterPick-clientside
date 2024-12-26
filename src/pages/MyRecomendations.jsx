@@ -8,7 +8,7 @@ const MyRecommendations = () => {
   console.log(user);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myRecommendations/${user.email}`)
+    fetch(`https://server-site-rust.vercel.app//myRecommendations/${user.email}`)
       .then(res => res.json())
       .then(data => setRecommendations(data))
       .catch(err => console.error(err));
@@ -16,7 +16,7 @@ const MyRecommendations = () => {
 
   const handleDelete = (id, queryId) => {
     if (window.confirm('Are you sure you want to delete this recommendation?')) {
-      fetch(`http://localhost:5000/recommendations/${id}`, { method: 'DELETE' })
+      fetch(`https://server-site-rust.vercel.app//recommendations/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(() => {
           toast.success('Recommendation deleted successfully!');
