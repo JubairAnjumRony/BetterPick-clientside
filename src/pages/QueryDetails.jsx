@@ -75,15 +75,25 @@ const QueryDetails = () => {
       .then((data) => {
         toast.success('Recommendation added successfully!');
         setRecommendations([...recommendations, recommendationData]);
-        // Update recommendation count
-        fetch(`http://localhost:5000/queries/increment/${id}`, {
-          method: 'PATCH',
-        });
-      })
-      .catch((error) => toast.error('Failed to add recommendation.'));
-  };
+ 
 
 
+       // Add the new recommendation to the state
+       setRecommendations([...recommendations, recommendationData]);
+
+       // Increment the recommendation count locally
+       setQueryDetails((prevDetails) => ({
+         ...prevDetails,
+         recommendationCount: (prevDetails.recommendationCount || 0) + 1,
+       }));
+ 
+       // Update recommendation count on the server
+       fetch(`http://localhost:5000/queries/increment/${id}`, {
+         method: 'PATCH',
+       }).catch((error) => console.error('Failed to increment recommendation count:', error));
+     })
+     .catch((error) => toast.error('Failed to add recommendation.'));
+ };
 
 
   return (

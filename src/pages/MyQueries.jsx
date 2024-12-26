@@ -121,6 +121,8 @@ import { AuthContext } from '../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+// import UpdateQueries from './UpdateQueries';
+
 
 const MyQueries = () => {
   const { user } = useContext(AuthContext);
@@ -128,7 +130,31 @@ const MyQueries = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+
+
+//   const [selectedQuery, setSelectedQuery] = useState(null);
+// const [isModalOpen, setIsModalOpen] = useState(false);
+
+// const handleUpdate2 = (query) => {
+//   setSelectedQuery(query);
+//   setIsModalOpen(true);
+// };
+
+// const closeModal = () => {
+//   setIsModalOpen(false);
+//   setSelectedQuery(null);
+// };
+
+// const handleQueryUpdate = () => {
+//   // Refetch the queries or update the local state to reflect changes
+//   fetchQueries(); // Assuming you have a function to refetch the queries
+// };
+  
+  
+  
+
   useEffect(() => {
+
     if (user?.email) {
       fetch(`http://localhost:5000/queries/${user.email}`)
         .then((res) => res.json())
@@ -151,7 +177,7 @@ const MyQueries = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/queries/${id}`, { method: 'DELETE' })
+        fetch(`http://localhost:5000/delete-queries/${id}`, { method: 'DELETE' })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -176,6 +202,32 @@ const MyQueries = () => {
   };
 
   return (
+
+ 
+<>
+    {/* // Render in MyQueries.jsx */}
+    
+  {/* {equipments.map((item) => (
+    <div key={item._id}>
+      <button
+        onClick={() => handleUpdate2(item)}
+        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+      >
+        Update
+      </button>
+    </div>
+  ))}
+  <UpdateQueries
+    query={selectedQuery}
+    isOpen={isModalOpen}
+    onClose={closeModal}
+    onUpdate={handleQueryUpdate}
+  /> */}
+
+    
+    
+    
+    
     <div className="bg-gray-100">
       {/* Banner Section */}
       <div className="bg-blue-500 text-white py-8 text-center">
@@ -240,6 +292,7 @@ const MyQueries = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

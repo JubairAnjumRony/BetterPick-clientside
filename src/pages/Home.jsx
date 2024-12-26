@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
 import { useState } from "react";
+import FeaturedCategories from "../components/FeaturedCategories";
+import Testimonials from "../components/Testimonial";
 
 
 const Home = () => {
@@ -50,7 +52,14 @@ const Home = () => {
         
         ))}
       </div>
+         <div>
+            <FeaturedCategories/>
+            
+            </div>
 
+            <div>
+                <Testimonials/>
+            </div>
 </div>
     );
 };

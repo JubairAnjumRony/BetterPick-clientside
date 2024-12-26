@@ -1,9 +1,78 @@
+// import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+
+// const AllQueries = () => {
+//   const [queries, setQueries] = useState([]);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     fetch("http://localhost:5000/queries")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         // Sort queries in descending order by date
+//         const sortedQueries = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+//         setQueries(sortedQueries);
+//       })
+//       .catch((error) => console.error("Error fetching queries:", error));
+//   }, []);
+
+//   const handleRecommend = (id) => {
+//     navigate(`/queryDetails/${id}`);
+//   };
+
+//   return (
+//     <div className="p-4">
+//       <h2 className="text-2xl font-bold mb-4">All Queries</h2>
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+//         {queries.map((query) => (
+      
+     
+
+            
+//           <div key={query._id} className="card bg-white shadow-md p-4 border rounded-xl">
+//                 <div className = "relative p-2">
+//                 <img src={query.productImageUrl} alt={query.productName} className = "w-full h-48 object-cover rounded-2xl"/>
+             
+//             </div>
+//             <h3 className="text-lg font-bold mb-2">{query.queryTitle}</h3>
+//             <p className="text-sm mb-2">
+//               <strong>Product Name:</strong> {query.productName}
+//             </p>
+//             <p className="text-sm mb-2">
+//               <strong>Brand:</strong> {query.productBrand}
+//             </p>
+//             <p className="text-sm mb-2">
+//               <strong>Boycotting Reason:</strong> {query.boycottingReason}
+//             </p>
+//             <p className="text-sm mb-2">
+//               <strong>Recommendations:</strong> {query.recommendationCount}
+//             </p>
+//             <button
+//               onClick={() => handleRecommend(query._id)}
+//               className="btn btn-primary w-full"
+//             >
+//               Recommend
+//             </button>
+//           </div>
+        
+//         ))}
+//       </div>
+//     </div>
+  
+//   );
+// };
+
+// export default AllQueries;
+
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AllQueries = () => {
   const [queries, setQueries] = useState([]);
+  const [gridColumns, setGridColumns] = useState(3); // Default to a 3-column grid
   const navigate = useNavigate();
+  const [search,setSerarch] = useState(" ")
 
   useEffect(() => {
     fetch("http://localhost:5000/queries")
@@ -22,44 +91,92 @@ const AllQueries = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">All Queries</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {queries.map((query) => (
-      
-     
 
-            
-          <div key={query._id} className="card bg-white shadow-md p-4 border rounded-xl">
-                <div className = "relative p-2">
-                <img src={query.productImageUrl} alt={query.productName} className = "w-full h-48 object-cover rounded-2xl"/>
-             
+      <div className="w-[400px] mx-auto mb-4">
+        <input
+        onChange={(e)=>setSerarch(e.target.value)}
+        type="text"
+        name="search"
+        placeholder="search"
+        className="input input-bordered w-full" required />
+      </div>
+      <h2 className="text-2xl font-bold mb-4 flex justify-center">All Queries</h2>
+
+      {/* Layout Toggle Buttons */}
+      <div className="mb-4 flex gap-2 justify-end">
+        <button
+          onClick={() => setGridColumns(1)}
+          className={`btn ${gridColumns === 1 ? "btn-active" : "btn-primary"}`}
+        >
+          1 Column
+        </button>
+        <button
+          onClick={() => setGridColumns(2)}
+          className={`btn ${gridColumns === 2 ? "btn-active" : "btn-primary"}`}
+        >
+          2 Columns
+        </button>
+        <button
+          onClick={() => setGridColumns(3)}
+          className={`btn ${gridColumns === 3 ? "btn-active" : "btn-primary"}`}
+        >
+          3 Columns
+        </button>
+      </div>
+
+      {/* Dynamic Grid Layout */}
+      <div
+        className={`grid gap-4 ${
+          gridColumns === 1
+            ? "grid-cols-1"
+            : gridColumns === 2
+            ? "grid-cols-2"
+            : "grid-cols-3"
+        }`}
+      >
+        {queries.map((query) => (
+          <div
+            key={query._id}
+            className={`card bg-white shadow-md p-4 border rounded-xl ${
+              gridColumns === 1 ? "flex flex-col md:flex-row gap-4 items-center" : ""
+            }`}
+          >
+            <div className="relative">
+              <img
+                src={query.productImageUrl}
+                alt={query.productName}
+                className={`${
+                  gridColumns === 1 ? "w-32 h-32 object-cover" : "w-full h-48 object-cover"
+                } rounded-2xl`}
+              />
             </div>
-            <h3 className="text-lg font-bold mb-2">{query.queryTitle}</h3>
-            <p className="text-sm mb-2">
-              <strong>Product Name:</strong> {query.productName}
-            </p>
-            <p className="text-sm mb-2">
-              <strong>Brand:</strong> {query.productBrand}
-            </p>
-            <p className="text-sm mb-2">
-              <strong>Boycotting Reason:</strong> {query.boycottingReason}
-            </p>
-            <p className="text-sm mb-2">
-              <strong>Recommendations:</strong> {query.recommendationCount}
-            </p>
-            <button
-              onClick={() => handleRecommend(query._id)}
-              className="btn btn-primary w-full"
-            >
-              Recommend
-            </button>
+            <div className={gridColumns === 1 ? "flex-1" : ""}>
+              <h3 className="text-lg font-bold mb-2">{query.queryTitle}</h3>
+              <p className="text-sm mb-2">
+                <strong>Product Name:</strong> {query.productName}
+              </p>
+              <p className="text-sm mb-2">
+                <strong>Brand:</strong> {query.productBrand}
+              </p>
+              <p className="text-sm mb-2">
+                <strong>Boycotting Reason:</strong> {query.boycottingReason}
+              </p>
+              <p className="text-sm mb-2">
+                <strong>Recommendations:</strong> {query.recommendationCount}
+              </p>
+              <button
+                onClick={() => handleRecommend(query._id)}
+                className="btn btn-primary w-full"
+              >
+                Recommend
+              </button>
+            </div>
           </div>
-        
         ))}
       </div>
     </div>
-  
   );
 };
 
 export default AllQueries;
+
