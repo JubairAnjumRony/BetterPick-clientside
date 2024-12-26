@@ -31,6 +31,7 @@ const router = createBrowserRouter([
           {
             path:"/",
             element: <Home/>,
+             loader: () => fetch('http://localhost:5000/queries'),
           },
           {
             path:"/login",
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
          {
           path:"queryDetails/:id",
           element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-          // loader: ({params}) => fetch(`http://localhost:5000/queries/${params.id}`),
+          loader: ({params}) => fetch(`http://localhost:5000/queries/${params.id}`),
          },
 
          {

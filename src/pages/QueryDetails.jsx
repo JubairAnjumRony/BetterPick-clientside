@@ -4,13 +4,13 @@ import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const QueryDetails = () => {
-    // const queryDetails = useLoaderData();
-    // console.log(queryDetails);
+    const loader = useLoaderData();
+    console.log(loader);
   const { id } = useParams(); 
   console.log(id);
   const { user } = useContext(AuthContext);
   console.log(user)
-  const [queryDetails, setQueryDetails] = useState(null);
+  const [queryDetails, setQueryDetails] = useState(loader);
  
   const [recommendations, setRecommendations] = useState([]);
   const [formData, setFormData] = useState({
@@ -24,13 +24,13 @@ const QueryDetails = () => {
 
 
   // Fetch the query details
-  useEffect(() => {
-    fetch(`http://localhost:5000/queries/${id}`)
-      .then((res) => res.json())
-      .then((data) =>
-         setQueryDetails(data))
-      .catch((error) => toast.error('Failed to fetch query details.'));
-  }, [id]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/queries/${id}`)
+  //     .then((res) => res.json())
+  //     .then((data) =>
+  //        setQueryDetails(data))
+  //     .catch((error) => toast.error('Failed to fetch query details.'));
+  // }, [id]);
 
   // Fetch all recommendations for this query
   useEffect(() => {
@@ -86,9 +86,9 @@ const QueryDetails = () => {
     {queryDetails ? (
       <div>
         <h2 className="text-2xl font-bold">{queryDetails.queryTitle}</h2>
-        <p>Created by: {queryDetails.name}</p>
+        <p>Created by: {user.displayName}</p>
         <img
-          src={queryDetails.profileImage}
+          src={user.photoURL}
           alt="User profile"
           className="w-12 h-12 rounded-full"
         />
