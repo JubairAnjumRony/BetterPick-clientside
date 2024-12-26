@@ -41,31 +41,6 @@ const Register = () => {
 
 
 
-    //  create user with firebase
-   
-    //       createUser(email,password)
-    //       .then(result =>{
-    //         console.log(result.user);
-    //         setUser(user);
-    //         // e.target.reset();
-    //           updateUserProfile(auth.currentUser,{displayName: name, photoURL: photo})
-    //           // toast.success("profile updated successfully");
-    //          .then(()=>{
-    //           //  toast.success("user successfully  created");
-    //            e.target.reset();
-    //            navigate('/');
-    //        }).catch(error => {
-    //         setError(error.message);
-    //         notify(error.message);
-    //     });
-    // })
-    // .catch(error => {
-    //     setError(error.message);
-    //     notify(error.message);
-    //       });
-  
-    //     };
-    
     createUser(email, password)
     .then((result) => {
       const user = result.user;

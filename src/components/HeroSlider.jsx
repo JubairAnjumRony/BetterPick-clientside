@@ -25,7 +25,7 @@ const HeroSlider = () => {
         <div
           className="hero h-[400px] rounded-3xl shadow-2xl"
           style={{
-            backgroundImage: "url('https://i.ibb.co.com/3yrw8pG/largest-sports-equipment-companies-jpg.webp')",
+            backgroundImage: "url('https://i.ibb.co.com/KzLZ1yv/image-2.jpg')",
           }}
         >
           <div className="hero-overlay"></div>
@@ -35,8 +35,8 @@ const HeroSlider = () => {
               <h1 className="mb-5 text-5xl font-bold text-black">
                 Discover Your Path
               </h1>
-              <p className="mb-5 text-white">
-                Unlock your true potential with expert career counseling.
+              <p className="mb-5 text-black">
+                Unlock your true potential with expert Query counseling.
                 Explore personalized guidance, resources, and tools to navigate
                 your professional journey with confidence.
               </p>
@@ -54,17 +54,17 @@ const HeroSlider = () => {
         <div
           className="hero h-[400px] rounded-3xl shadow-2xl "
           style={{
-            backgroundImage: "url('https://i.ibb.co.com/nLNGWJt/kenny-nguy-n-Srqa975-RQDY-unsplash.jpg')",
+            backgroundImage: "url('https://i.ibb.co.com/NVdnM9j/img-3.jpg')",
           }}
         >
           <div className=""></div>
           <div className="hero-content text-neutral-content text-center">
             <div className="max-w-lg">
               <Fade cascade>
-              <h1 className="mb-5 text-5xl font-bold text-white">
+              <h1 className="mb-5 text-5xl font-bold text-black">
                 Shape Your Future
               </h1>
-              <p className="mb-5 text-white">
+              <p className="mb-5 text-black">
                 Find clarity in your career decisions with tailored advice and
                 insights. Your aspirations deserve the right direction—start
                 building your dream future today.
@@ -83,17 +83,17 @@ const HeroSlider = () => {
         <div
           className="hero h-[400px] rounded-3xl shadow-2xl"
           style={{
-            backgroundImage: "url('https://i.ibb.co.com/nLNGWJt/kenny-nguy-n-Srqa975-RQDY-unsplash.jpg')",
+            backgroundImage: "url('https://i.ibb.co.com/3S1g7xq/concept-recommendation-business-technology-internet-314054647.webp')",
           }}
         >
           <div className=""></div>
           <div className="hero-content text-neutral-content text-center">
             <div className="max-w-lg">
               <Fade cascade>
-              <h1 className="mb-5 text-5xl font-bold text-white">
+              <h1 className="mb-5 text-5xl font-bold text-black">
                 Empowering Career Choices
               </h1>
-              <p className="mb-5 text-white">
+              <p className="mb-5 text-black ">
                 Connect with career experts and access top-notch resources to
                 make informed decisions. Your success starts with the right
                 guidance—let’s take the first step together.

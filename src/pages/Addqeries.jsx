@@ -69,7 +69,7 @@ const Addqeries = () => {
 
     }
     return (
-        <div className="p-4">
+        <div className="p-4 w-3/4 mx-auto">
              <h2 className="text-2xl font-bold mb-4">Add Query</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

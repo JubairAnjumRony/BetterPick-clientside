@@ -89,6 +89,7 @@ const UpdateEquipments = () => {
     };
   
       return (
+        <div className="mt-6 mb-6">
         <form onSubmit={handleUpdate} className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg">
         <div>
           <label className="block font-medium">Product Name</label>
@@ -144,6 +145,7 @@ const UpdateEquipments = () => {
         <button data-tooltip-id="my-tooltip" data-tooltip-content="Update for better shopping!" type="submit" className="btn btn-primary w-full">Update</button>
         <Tooltip id="my-tooltip" />
       </form>
+      </div>
       );
   };
   

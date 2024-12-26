@@ -24,7 +24,7 @@ const RecommendationsForMe = () => {
   }, [user.email]);
 
   return (
-    <div>
+    <div className='w-3/4 mx-auto'>
       <h2 className="text-2xl font-bold mb-4">Recommendations For Me</h2>
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>

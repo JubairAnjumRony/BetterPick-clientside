@@ -13,13 +13,13 @@ const Home = () => {
     
     
     return (
- <div>
-        <div>
+ <div className="w-3/4 mx-auto mb-4 mt-4">
+        <div className="mb-6 mt-6">
           <HeroSlider></HeroSlider>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {queries.map((query) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        {queries.slice(0,6).map((query) => (
       
      
 

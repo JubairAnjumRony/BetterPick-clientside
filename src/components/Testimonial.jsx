@@ -10,21 +10,21 @@ const Testimonials = () => {
     {
       id: 1,
       name: 'Alice Johnson',
-      image: '/images/user1.jpg',
+      image: 'https://i.ibb.co.com/BBTSqZr/face-1869641-640.jpg',
       rating: 5,
       comment: 'BetterPick helped me find the perfect laptop within minutes!',
     },
     {
       id: 2,
       name: 'Michael Smith',
-      image: '/images/user2.jpg',
+      image: 'https://i.ibb.co.com/LzNpNY8/pexels-justin-shaifer-501272-1222271.jpg',
       rating: 4,
       comment: 'Amazing service! I love the recommendations.',
     },
     {
       id: 3,
       name: 'Sophia Williams',
-      image: '/images/user3.jpg',
+      image: 'https://i.ibb.co.com/CBxVkMW/pexels-olly-774909.jpg',
       rating: 5,
       comment: 'Very accurate suggestions, saved me a lot of time.',
     },
@@ -50,7 +50,7 @@ const Testimonials = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-16 h-16 rounded-full mx-auto mb-4"
+                  className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h3 className="text-xl font-semibold">{testimonial.name}</h3>
                 <p className="text-yellow-500 mt-2">

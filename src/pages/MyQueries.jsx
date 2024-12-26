@@ -202,33 +202,9 @@ const MyQueries = () => {
   };
 
   return (
-
- 
-<>
-    {/* // Render in MyQueries.jsx */}
+    <div className='w-3/4 mx-auto'>
     
-  {/* {equipments.map((item) => (
-    <div key={item._id}>
-      <button
-        onClick={() => handleUpdate2(item)}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
-      >
-        Update
-      </button>
-    </div>
-  ))}
-  <UpdateQueries
-    query={selectedQuery}
-    isOpen={isModalOpen}
-    onClose={closeModal}
-    onUpdate={handleQueryUpdate}
-  /> */}
-
-    
-    
-    
-    
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 ">
       {/* Banner Section */}
       <div className="bg-blue-500 text-white py-8 text-center">
         <h1 className="text-4xl font-bold mb-4">My Queries</h1>
@@ -292,7 +268,7 @@ const MyQueries = () => {
         )}
       </div>
     </div>
-    </>
+   </div>
   );
 };
 

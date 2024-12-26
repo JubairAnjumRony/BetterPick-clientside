@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { auth } from '../Firebase/Firebase.init';
 import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 
 export const AuthContext = createContext(null);
@@ -27,14 +28,40 @@ const AuthProvider = ({children}) => {
 
        useEffect(()=>{
            const unsubscribe =onAuthStateChanged(auth,(currentUser) =>{
-               console.log("user",currentUser)
                setUser(currentUser);
-               setLoading(false);
-           })
-       
+               console.log("state captured",currentUser?.email)
+               if (currentUser?.email) {
+                const user = { email: currentUser.email };
 
-           return ()=> {unsubscribe()};
-       },[])
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log('login token', res.data);
+                        setLoading(false);
+                    })
+
+            }
+            else {
+                axios.post('http://localhost:5000/logout', {}, {
+                    withCredentials: true
+                })
+                .then(res => {
+                    console.log('logout', res.data);
+                    setLoading(false);
+                })
+            }
+            
+        })
+
+
+        return () => {
+            unsubscribe();
+        }
+    }, [])
+
+
+
+
+
 
        const signOutUser = ()=>{
            setLoading(true);

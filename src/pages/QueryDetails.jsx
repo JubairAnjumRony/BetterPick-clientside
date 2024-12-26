@@ -97,7 +97,7 @@ const QueryDetails = () => {
 
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container w-3/4 mx-auto p-6">
     {queryDetails ? (
       <div>
         <h2 className="text-2xl font-bold">{queryDetails.queryTitle}</h2>
