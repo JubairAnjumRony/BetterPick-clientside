@@ -2,14 +2,14 @@ import  { useContext, useEffect, useState } from 'react';
 
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+
 // import { FaHouseFloodWaterCircleArrowRight } from 'react-icons/fa6';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const MyRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
   const {user} = useContext(AuthContext) // Replace with your auth method
-  console.log(user);
+  // console.log(user);
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
@@ -17,8 +17,9 @@ const MyRecommendations = () => {
     //   .then(res => res.json())
     //   .then(data => setRecommendations(data))
     //   .catch(err => console.error(err));
-
-    fetchAllReco();
+    if (user?.email) {
+      fetchAllReco();
+    }
   }, [user.email]);
 
   const fetchAllReco =async () =>{

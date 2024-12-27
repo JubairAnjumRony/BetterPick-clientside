@@ -5,6 +5,7 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 const RecommendationsForMe = () => {
   const [recommendations, setRecommendations] = useState([]);
   const {user} = useContext(AuthContext) 
+  console.log(user?.email);
   const axioSecure = useAxiosSecure();
 
   // const [queryDetails, setQueryDetails] = useState();
@@ -19,11 +20,10 @@ const RecommendationsForMe = () => {
   // }, [id]);
 
   useEffect(() => {
-    // fetch(`https://server-site-rust.vercel.app/recommendationsForMe/${user.email}`)
-    //   .then(res => res.json())
-    //   .then(data => setRecommendations(data))
-    //   .catch(err => console.error(err));
-    fetchAllForMe();
+    if (user?.email) {
+      fetchAllForMe();
+    }
+
   }, [user.email]);
 
   const fetchAllForMe = async ()=>{
