@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
 import { useState } from "react";
 import FeaturedCategories from "../components/FeaturedCategories";
@@ -6,10 +6,14 @@ import Testimonials from "../components/Testimonial";
 
 
 const Home = () => {
-
+     const navigate = useNavigate();
     const loader = useLoaderData();
     console.log(loader);
     const [queries,setQueries] = useState(loader);
+
+    const handleRecomend =(_id) =>{
+        navigate(`/queryDetails/${_id}`);
+    }
     
     
     return (
@@ -18,7 +22,7 @@ const Home = () => {
           <HeroSlider></HeroSlider>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full ">
         {queries.slice(0,6).map((query) => (
       
      
@@ -39,11 +43,11 @@ const Home = () => {
             <p className="text-sm mb-2">
               <strong>Boycotting Reason:</strong> {query.boycottingReason}
             </p>
-            <p className="text-sm mb-2">
+            <p className="text-sm mb-2 flex-grow">
               <strong>Recommendations:</strong> {query.recommendationCount}
             </p>
             <button
-            //   onClick={() => }
+              onClick={() =>handleRecomend(query._id) }
               className="btn btn-primary w-full"
             >
               Recommend
