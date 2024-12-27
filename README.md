@@ -3,7 +3,7 @@
 ## Purpose
 The **Product Recommendation Site** is a user-centric platform where individuals can share queries about products, find alternative product recommendations, and contribute to community-driven discussions.
 
-## Live URL:
+## Live URL:https://assignment-11-b34c0.web.app/
 [**Visit the Live Website**](#)
 
 ## Key Features
@@ -41,4 +41,4 @@ To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/product-recommendation-site.git
+   git clone https://github.com/programming-hero-web-course2/b10a11-client-side-JubairAnjumRony

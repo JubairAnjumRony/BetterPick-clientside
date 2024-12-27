@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState,  } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const RecommendationsForMe = () => {
   const [recommendations, setRecommendations] = useState([]);
   const {user} = useContext(AuthContext) 
+  const axioSecure = useAxiosSecure();
 
   // const [queryDetails, setQueryDetails] = useState();
 
@@ -17,11 +19,17 @@ const RecommendationsForMe = () => {
   // }, [id]);
 
   useEffect(() => {
-    fetch(`https://server-site-rust.vercel.app/recommendationsForMe/${user.email}`)
-      .then(res => res.json())
-      .then(data => setRecommendations(data))
-      .catch(err => console.error(err));
+    // fetch(`https://server-site-rust.vercel.app/recommendationsForMe/${user.email}`)
+    //   .then(res => res.json())
+    //   .then(data => setRecommendations(data))
+    //   .catch(err => console.error(err));
+    fetchAllForMe();
   }, [user.email]);
+
+  const fetchAllForMe = async ()=>{
+    const {data} = await axioSecure.get(`https://server-site-rust.vercel.app/recommendationsForMe/${user.email}`,{withCredentials: true})
+    setRecommendations(data);
+  }
 
   return (
     <div className='w-3/4 mx-auto'>

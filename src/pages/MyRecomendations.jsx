@@ -1,33 +1,75 @@
 import  { useContext, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+// import { FaHouseFloodWaterCircleArrowRight } from 'react-icons/fa6';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const MyRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
   const {user} = useContext(AuthContext) // Replace with your auth method
   console.log(user);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    fetch(`https://server-site-rust.vercel.app/myRecommendations/${user.email}`)
-      .then(res => res.json())
-      .then(data => setRecommendations(data))
-      .catch(err => console.error(err));
+    // fetch(`https://server-site-rust.vercel.app/myRecommendations/${user.email}`)
+    //   .then(res => res.json())
+    //   .then(data => setRecommendations(data))
+    //   .catch(err => console.error(err));
+
+    fetchAllReco();
   }, [user.email]);
 
-  const handleDelete = (id, queryId) => {
-    if (window.confirm('Are you sure you want to delete this recommendation?')) {
-      fetch(`https://server-site-rust.vercel.app/recommendations/${id}`, { method: 'DELETE' })
-        .then(res => res.json())
-        .then(() => {
-          toast.success('Recommendation deleted successfully!');
-          setRecommendations(prev => prev.filter(rec => rec._id !== id));
-        })
-        .catch(err => toast.error('Failed to delete recommendation'));
-    }
-  };
+  const fetchAllReco =async () =>{
+    const {data} = await axiosSecure.get(`https://server-site-rust.vercel.app/myRecommendations/${user.email}`,{withCredentials:true})
+    setRecommendations(data);
+  }
 
+  // const handleDelete = (id, queryId) => {
+  //   if (window.confirm('Are you sure you want to delete this recommendation?')) {
+  //     fetch(`https://server-site-rust.vercel.app/recommendations/${id}`, { method: 'DELETE' })
+  //       .then(res => res.json())  email=irony6329@gamil.com
+  //       .then(() => {
+  //         toast.success('Recommendation deleted successfully!');
+  //         setRecommendations(prev => prev.filter(rec => rec._id !== id));
+  //       })
+  //       .catch(err => toast.error('Failed to delete recommendation'));
+  //   }
+  // };
+
+
+
+
+  const handleDelete = (id, queryId) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to delete this recommendation?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://server-site-rust.vercel.app/recommendations/${id}`, { method: 'DELETE' })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire('Deleted!', 'Your recommendation has been deleted.', 'success');
+            setRecommendations((prev) => prev.filter((rec) => rec._id !== id));
+          })
+          .catch((err) => Swal.fire('Error!', 'Failed to delete recommendation.', 'error'));
+      }
+    });
+  };
+  
+  
+  
+  
+  
+  
   return (
-    <div className='w-3/4 mx-auto'>
+    <div className='w-3/4 mx-auto mb-6 mt-4'>
       <h2 className="text-2xl font-bold mb-4">My Recommendations</h2>
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>

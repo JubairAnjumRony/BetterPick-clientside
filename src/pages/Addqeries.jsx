@@ -1,9 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 
 const Addqeries = () => {
+  const axiosSecure = useAxiosSecure();
 
     const { user } = useContext(AuthContext);
     const [formData, setFormData] = useState({
@@ -35,6 +37,7 @@ const Addqeries = () => {
         recommendationCount: 0,
       };
 
+
       fetch('https://server-site-rust.vercel.app/queries',{
         method:'POST',
         headers:{
@@ -43,7 +46,6 @@ const Addqeries = () => {
 
         body:JSON.stringify(queryData)
     })
-
         .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
@@ -58,7 +60,8 @@ const Addqeries = () => {
                 }
             })
 
-            setFormData({
+        
+          setFormData({
                 productName: "",
                 productBrand: "",
                 productImageUrl: "",

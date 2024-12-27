@@ -52,7 +52,7 @@ const router = createBrowserRouter([
          },
          {
           path: 'recommendationsForMe',
-          element: <PrivateRoute><RecommendationsForMe /></PrivateRoute>,
+          element: <RecommendationsForMe />,
         },
 
          {
@@ -61,11 +61,11 @@ const router = createBrowserRouter([
          },
          {
           path:"myRecomendations",
-          element:<PrivateRoute><MyRecomendations></MyRecomendations></PrivateRoute>
+          element:<MyRecomendations></MyRecomendations>
          },
          {
           path:"queryDetails/:id",
-          element:<PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
+          element:<QueryDetails></QueryDetails>,
           loader: ({params}) => fetch(`https://server-site-rust.vercel.app/querie/${params.id}`)
          },
 

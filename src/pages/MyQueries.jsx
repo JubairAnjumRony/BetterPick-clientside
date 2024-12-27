@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 // import UpdateQueries from './UpdateQueries';
 
 
@@ -13,6 +14,7 @@ const MyQueries = () => {
   const [equipments, setEquipments] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const axioSecure = useAxiosSecure();
 
   useEffect(() => {
 
@@ -20,30 +22,17 @@ const MyQueries = () => {
     fetchMyQueries();
   }
 
-    // if (user?.email) {
-    //   fetch(`https://server-site-rust.vercel.app/queries/${user.email}`)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setEquipments(data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))); // Sort by timestamp descending
-    //       setLoading(false);
-    //     })
-    //     .catch((error) => toast.error(`Failed to fetch your queries: ${error.message}`));
-    // }
+   
   },[user?.email]);
 
 
 
-  //  const fetchMyQueries = async () =>
-  //  {    const data = await axios.get(`https://server-site-rust.vercel.app/queries/${user.email}`)
-  //       setEquipments(data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
-
-  //  }
 
 
 
   const fetchMyQueries = async () => {
     try {
-      const response = await axios.get(`https://server-site-rust.vercel.app/queries/${user.email}`,{withCredentials: true});
+      const response = await axioSecure.get(`https://server-site-rust.vercel.app/queries/${user?.email}`,{withCredentials: true});
       setEquipments(response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
       setLoading(false);
     } catch (error) {

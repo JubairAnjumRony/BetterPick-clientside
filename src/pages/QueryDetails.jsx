@@ -2,14 +2,17 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-toastify';
+// import useAxiosSecure from '../Hooks/useAxiosSecure';
+
 
 const QueryDetails = () => {
     const loader = useLoaderData();
-    console.log(loader);
+    // console.log(loader);
   const { id } = useParams(); 
-  console.log(id);
+  // console.log(id);
   const { user } = useContext(AuthContext);
-  console.log(user)
+  // console.log(user)
+  // const axioSecure = useAxiosSecure();
   const [queryDetails, setQueryDetails] = useState(loader);
  
   const [recommendations, setRecommendations] = useState([]);
@@ -38,7 +41,16 @@ const QueryDetails = () => {
       .then((res) => res.json())
       .then((data) => setRecommendations(data))
       .catch((error) => toast.error('Failed to fetch recommendations.'));
+
+    // fetchAllDetails();
   }, [id]);
+
+
+  // const fetchAllDetails = async () =>{
+  //   const {data} = await axioSecure.get(`https://server-site-rust.vercel.app/recommendations/${id}`,{useCredential:true})
+  //   setRecommendations(data);
+
+  // }
 
 
   console.log(queryDetails.productName);
