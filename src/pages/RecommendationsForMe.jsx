@@ -24,10 +24,12 @@ const RecommendationsForMe = () => {
       fetchAllForMe();
     }
 
-  }, [user.email]);
+ 
+
+  },[user?.email]);
 
   const fetchAllForMe = async ()=>{
-    const {data} = await axioSecure.get(`https://server-site-rust.vercel.app/recommendationsForMe/${user.email}`,{withCredentials: true})
+    const {data} = await axioSecure.get(`https://server-site-rust.vercel.app/recommendationsForMe/${user?.email}`,{withCredentials: true})
     setRecommendations(data);
   }
 

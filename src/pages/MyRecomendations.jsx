@@ -20,10 +20,12 @@ const MyRecommendations = () => {
     if (user?.email) {
       fetchAllReco();
     }
-  }, [user.email]);
+ 
+  },[user?.email]);
 
   const fetchAllReco =async () =>{
-    const {data} = await axiosSecure.get(`https://server-site-rust.vercel.app/myRecommendations/${user.email}`,{withCredentials:true})
+
+    const {data} = await axiosSecure.get(`https://server-site-rust.vercel.app/myRecommendations/${user?.email}`,{withCredentials:true})
     setRecommendations(data);
   }
 
