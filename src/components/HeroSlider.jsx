@@ -9,7 +9,7 @@ import { Fade } from "react-awesome-reveal";
 
 const HeroSlider = () => {
     return (
-        <div className =" ">
+        <div className ="">
         <Swiper
       modules={[Autoplay, Navigation, Pagination, A11y]}
       spaceBetween={50}
@@ -23,7 +23,7 @@ const HeroSlider = () => {
     >
       <SwiperSlide>
         <div
-          className="hero h-[400px] rounded-3xl shadow-2xl"
+          className="hero h-[500px] rounded-xl shadow-2xl"
           style={{
             backgroundImage: "url('https://i.ibb.co.com/KzLZ1yv/image-2.jpg')",
           }}
@@ -52,7 +52,7 @@ const HeroSlider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="hero h-[400px] rounded-3xl shadow-2xl "
+          className="hero h-[500px] rounded-xl shadow-2xl "
           style={{
             backgroundImage: "url('https://i.ibb.co.com/NVdnM9j/img-3.jpg')",
           }}
@@ -81,7 +81,7 @@ const HeroSlider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="hero h-[400px] rounded-3xl shadow-2xl"
+          className="hero h-[500px] rounded-xl shadow-2xl"
           style={{
             backgroundImage: "url('https://i.ibb.co.com/3S1g7xq/concept-recommendation-business-technology-internet-314054647.webp')",
           }}
