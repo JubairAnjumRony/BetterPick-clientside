@@ -2,7 +2,7 @@ import logo from '../assets/logo.webp'
 import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
-        <footer className="footer footer-center bg-base-200 text-base-content rounded p-2">
+        <footer className="footer footer-center bg-blue-300 text-base-content rounded p-2">
           <div className='flex justify-between mt-2'>
              <div>
                <img className="w-11 h-11 rounded-full" src={logo} alt="" /> 
