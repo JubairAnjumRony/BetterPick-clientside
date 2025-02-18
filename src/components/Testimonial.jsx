@@ -49,7 +49,7 @@ const Testimonials = () => {
   return (
     <section className="testimonials py-10">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6">What Our Users Say</h2>
+        <h2 className="text-3xl text-[#578FCA] font-bold mb-6">What Our Users Say</h2>
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={20}

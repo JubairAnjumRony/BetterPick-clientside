@@ -3,6 +3,7 @@ import HeroSlider from "../components/HeroSlider";
 import { useEffect, useState } from "react";
 import FeaturedCategories from "../components/FeaturedCategories";
 import Testimonials from "../components/Testimonial";
+import Faq from "../components/Faq";
 
 
 
@@ -46,7 +47,7 @@ const Home = () => {
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
                     <span className="text-[#578FCA]">Recently</span> <span className="text-[#578FCA]">Added Queries</span>
                 </h2>
-                <p className="text-lg">
+                <p className="text-lg text-[#578FCA]">
                     Explore the recent product-related queries, including detailed descriptions, reasons, and recommendations.
                 </p>
             </div>
@@ -107,6 +108,9 @@ const Home = () => {
 
             <div>
                 <Testimonials/>
+            </div>
+            <div>
+              <Faq/>
             </div>
 </div>
     );

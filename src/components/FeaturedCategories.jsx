@@ -49,7 +49,7 @@ const FeaturedCategories = () => {
   
     return (
       <div className="py-8 mb-8">
-        <h2 className="text-3xl font-bold text-center mb-6">Most Asked Queries </h2>
+        <h2 className="text-3xl font-bold text-[#578FCA] text-center mb-6">Most Asked Queries </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 container mx-auto">
           {categories.map((category) => (
             <div key={category.id} className="bg-white shadow-md rounded-lg p-4">

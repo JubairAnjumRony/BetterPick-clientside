@@ -42,7 +42,7 @@ const HeroSlider = () => {
               </p>
               </Fade>
               <Link to="/">
-                <button className="btn bg-success-dark hover:bg-success-primary-500 text-black border-none">
+                <button className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
                   Get Started
                 </button>
               </Link>
@@ -71,7 +71,7 @@ const HeroSlider = () => {
               </p>
               </Fade>
               <Link to="/" >
-                <button className="btn bg-success-dark hover:bg-success-primary-500 text-black border-none">
+                <button className="btn text-[#578FCA] border-none">
                   Get Started
                 </button>
               </Link>
@@ -100,7 +100,7 @@ const HeroSlider = () => {
               </p>
               </Fade>
               <Link to="/" clas>
-                <button className="btn bg-success-dark hover:bg-success-primary-500 text-black border-none">
+                <button className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
                   Get Started
                 </button>
               </Link>

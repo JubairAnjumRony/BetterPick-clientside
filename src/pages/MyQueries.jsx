@@ -114,7 +114,7 @@ const MyQueries = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {equipments.map((item) => (
-              <div key={item._id} className="bg-white shadow-md rounded-lg p-4">
+              <div key={item._id} className="bg-white shadow-md rounded-lg p-4 flex flex-col">
                 <img
                   src={item.productImageUrl}
                   alt={item.itemName}
@@ -122,7 +122,7 @@ const MyQueries = () => {
                 />
                 <h2 className="text-xl font-bold mb-2">{item.queryTitle}</h2>
                 <p className="text-gray-600">Product: {item.productName}</p>
-                <p className="text-gray-600">Reason: {item.boycottingReason}</p>
+                <p className="text-gray-600  flex-grow">Reason: {item.boycottingReason}</p>
                 <div className="flex justify-between mt-4">
                   <button
                     onClick={() => handleViewDetails(item._id)}

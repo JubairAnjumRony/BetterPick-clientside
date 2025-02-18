@@ -82,11 +82,11 @@ const [loading,setLoading] = useState(true);
       </div>):
       (
     <div className='w-3/4 mx-auto mb-6 mt-4'>
-      <h2 className="text-2xl font-bold mb-4">My Recommendations</h2>
+      <h2 className="text-2xl font-bold mb-4 text-[#578FCA]">My Recommendations</h2>
 
    
         <div>
-      <table className="table-auto w-full border-collapse border border-gray-300">
+      <table className="table-auto w-full border-collapse border text-gray-500 border-gray-300">
         <thead>
 
           <tr>

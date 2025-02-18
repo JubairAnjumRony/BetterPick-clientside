@@ -91,12 +91,12 @@ const Navbar = () => {
               {user && user?.email ? (
     <button
       onClick={()=>handleSignOut()}
-      className="btn btn-neutral rounded-2xl ml-4 bg-red-600"
+      className="border border-red-600 rounded-2xl ml-4 text-red-600"
     >
       Log Out
     </button>
      ) : (
-    <Link to="/login" className="btn btn-primary rounded-2xl ml-4 bg-blue-500">
+    <Link to="/login" className="text-white rounded-2xl ml-4 bg-blue-500">
       Login
     </Link>
   )}
@@ -126,7 +126,7 @@ const Navbar = () => {
             {user && user?.email ? (
     <button
       onClick={()=>handleSignOut()}
-      className="btn btn-neutral rounded-2xl ml-4 bg-red-600"
+      className="border border-red-600 rounded-2xl ml-4 text-red-600 px-2"
     >
       Log Out
     </button>

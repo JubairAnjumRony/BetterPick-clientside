@@ -1,6 +1,3 @@
-
-
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -36,6 +33,13 @@ const AllQueries = () => {
     navigate(`/queryDetails/${id}`);
   };
 
+  const handleSort = (sortBy) =>{
+    if(sortBy =='count'){
+      const sorted =  [...queries].sort((a,b)=>a.recommendationCount- b.recommendationCount);
+      setQueries([...sorted]);
+    }
+  }
+
   return (
     <div className="p-4 w-11/12 lg:w-3/4 mx-auto">
       {/* Search Input */}
@@ -55,25 +59,33 @@ const AllQueries = () => {
       <h2 className="text-2xl font-bold mb-4 text-blue-300 flex justify-center">All Queries</h2>
 
       {/* Layout Toggle Buttons */}
-      <div className="mb-4 flex gap-2 justify-center md:justify-end">
+     <div className="flex justify-between items-center">
+
+      <div>
+        <button className="btn btn-primary bg-[#578FCA]" onClick ={()=>handleSort('count')}>Sort By Recomend</button>
+      </div>
+
+     <div className="mb-4 flex gap-2 justify-center md:justify-end">
         <button
           onClick={() => setGridColumns(1)}
-          className={`btn ${gridColumns === 1 ? "btn-active" : "btn-primary"}`}
+          className={`btn ${gridColumns === 1 ? "btn-active" : "btn-primary bg-[#578FCA]"}`}
         >
           1 Column
         </button>
         <button
           onClick={() => setGridColumns(2)}
-          className={`btn ${gridColumns === 2 ? "btn-active" : "btn-primary"}`}
+          className={`btn ${gridColumns === 2 ? "btn-active" : "btn-primary bg-[#578FCA]"}`}
         >
           2 Columns
         </button>
         <button
           onClick={() => setGridColumns(3)}
-          className={`btn ${gridColumns === 3 ? "btn-active" : "btn-primary"}`}
+          className={`btn ${gridColumns === 3 ? "btn-active" : "btn-primary bg-[#578FCA]"}`}
         >
           3 Columns
         </button>
+      </div>
+
       </div>
 
       {/* Responsive Grid Layout */}
