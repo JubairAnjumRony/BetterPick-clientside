@@ -3,6 +3,12 @@
 ## Purpose
 The **Product Recommendation Site** is a user-centric platform where individuals can share queries about products, find alternative product recommendations, and contribute to community-driven discussions.
 
+
+![landing Page](./src/assets/home.png)
+![queryPage](./src//assets/queries.png)
+
+---
+
 ## Live URL:https://assignment-11-b34c0.web.app/
 [**Visit the Live Website**](#)
 
