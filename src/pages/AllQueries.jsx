@@ -99,7 +99,7 @@ const AllQueries = () => {
                 className={`${
                   gridColumns === 1
                     ? "w-32 h-32 object-cover"
-                    : "w-full object-cover h-48 sm:h-64 md:h-48 lg:h-48 "
+                    : "w-full object-contain sm:h-64 md:h-48 lg:h-48 "
                 } rounded-2xl`}
               />
             </div>

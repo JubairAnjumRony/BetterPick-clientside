@@ -96,7 +96,7 @@ const Navbar = () => {
       Log Out
     </button>
      ) : (
-    <Link to="/login" className="btn btn-neutral rounded-2xl ml-4 bg-green-400">
+    <Link to="/login" className="btn btn-primary rounded-2xl ml-4 bg-blue-500">
       Login
     </Link>
   )}
@@ -131,7 +131,7 @@ const Navbar = () => {
       Log Out
     </button>
      ) : (
-    <Link to="/login" className="btn btn-neutral rounded-2xl ml-4 bg-green-400">
+    <Link to="/login" className="btn btn-neutral rounded-xl ml-4 bg-[#578FCA]">
       Login
     </Link>
   )}
