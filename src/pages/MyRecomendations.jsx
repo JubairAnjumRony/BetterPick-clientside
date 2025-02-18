@@ -6,8 +6,11 @@ import Swal from 'sweetalert2';
 // import { FaHouseFloodWaterCircleArrowRight } from 'react-icons/fa6';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 
+
 const MyRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
+  
+const [loading,setLoading] = useState(true);
   const {user} = useContext(AuthContext) // Replace with your auth method
   // console.log(user);
   const axiosSecure = useAxiosSecure();
@@ -27,6 +30,7 @@ const MyRecommendations = () => {
 
     const {data} = await axiosSecure.get(`https://server-site-rust.vercel.app/myRecommendations/${user?.email}`,{withCredentials:true})
     setRecommendations(data);
+    setLoading(false);
   }
 
   // const handleDelete = (id, queryId) => {
@@ -72,10 +76,19 @@ const MyRecommendations = () => {
   
   
   return (
+   <>
+      {loading? (<div className='flex justify-center items-center'>
+        <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-teal-500"></div>
+      </div>):
+      (
     <div className='w-3/4 mx-auto mb-6 mt-4'>
       <h2 className="text-2xl font-bold mb-4">My Recommendations</h2>
+
+   
+        <div>
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>
+
           <tr>
             <th className="border border-gray-300 px-4 py-2">Title</th>
             <th className="border border-gray-300 px-4 py-2">Recommended Product</th>
@@ -101,7 +114,11 @@ const MyRecommendations = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
+        )
+      }
+   </>  
   );
 };
 

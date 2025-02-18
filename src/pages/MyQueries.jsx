@@ -83,7 +83,7 @@ const MyQueries = () => {
     
     <div className="bg-gray-100 ">
       {/* Banner Section */}
-      <div className="bg-blue-500 text-white py-8 text-center">
+      <div className="bg-[#578FCA] text-white py-8 text-center">
         <h1 className="text-4xl font-bold mb-4">My Queries</h1>
         <button
           onClick={handleAddQuery}
@@ -96,7 +96,11 @@ const MyQueries = () => {
       {/* Query List Section */}
       <div className="container mx-auto py-8">
         {loading ? (
-          <p className="text-center text-gray-500">Loading your queries...</p>
+          
+          <div className='flex justify-center items-center'>
+
+   <div className="animate-spin rounded-full h-10 w-10 border-t-4 bg-[#578FCA]"></div>
+            </div>
         ) : equipments.length === 0 ? (
           <div className="text-center">
             <p className="text-gray-600 mb-4">No queries found. Add your first query!</p>
@@ -122,13 +126,13 @@ const MyQueries = () => {
                 <div className="flex justify-between mt-4">
                   <button
                     onClick={() => handleViewDetails(item._id)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-md"
+                    className="bg-[#578FCA] text-white px-4 py-2 rounded-md"
                   >
                     View Details
                   </button>
                   <button
                     onClick={() => handleUpdate(item._id)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                    className="bg-blue-400 text-white px-4 py-2 rounded-md"
                   >
                     Update
                   </button>

@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState,  } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
+import Loading from '../components/Loading';
 
 const RecommendationsForMe = () => {
   const [recommendations, setRecommendations] = useState([]);
-  const {user} = useContext(AuthContext) 
+  const {user} = useContext(AuthContext);
+  const [loading,setLoading] = useState(true);
   console.log(user?.email);
   const axioSecure = useAxiosSecure();
 
@@ -22,20 +24,34 @@ const RecommendationsForMe = () => {
   useEffect(() => {
     if (user?.email) {
       fetchAllForMe();
+   
     }
-
- 
-
   },[user?.email]);
+
+
+
 
   const fetchAllForMe = async ()=>{
     const {data} = await axioSecure.get(`https://server-site-rust.vercel.app/recommendationsForMe/${user?.email}`,{withCredentials: true})
     setRecommendations(data);
+    setLoading(false);
   }
 
   return (
-    <div className='w-3/4 mx-auto'>
+
+   <>
+    {loading?
+     
+        (<div className='flex justify-center items-center'>
+          <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-teal-500"></div>
+          </div> 
+      ):
+   ( <div className='w-3/4 mx-auto'>
       <h2 className="text-2xl font-bold mb-4">Recommendations For Me</h2>
+
+     
+      
+    
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>
           <tr>
@@ -56,7 +72,11 @@ const RecommendationsForMe = () => {
           ))}
         </tbody>
       </table>
-    </div>
+        
+      </div>
+   )}
+   </>
+
   );
 };
 

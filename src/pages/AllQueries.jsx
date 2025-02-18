@@ -9,6 +9,7 @@ const AllQueries = () => {
   const [gridColumns, setGridColumns] = useState(3); // Default to a 3-column grid
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
+  const [loading,setLoading]= useState([true]);
 
   useEffect(() => {
     const fetchQueries = async () => {
@@ -16,6 +17,7 @@ const AllQueries = () => {
         const res = await fetch(`https://server-site-rust.vercel.app/queries?searchParams=${search}`);
         const data = await res.json();
         setQueries(data);
+        setLoading(false);
         console.log(data);
       } catch (error) {
         console.error("Failed to fetch queries:", error);
@@ -50,7 +52,7 @@ const AllQueries = () => {
       </div>
 
       {/* Heading */}
-      <h2 className="text-2xl font-bold mb-4 flex justify-center">All Queries</h2>
+      <h2 className="text-2xl font-bold mb-4 text-blue-300 flex justify-center">All Queries</h2>
 
       {/* Layout Toggle Buttons */}
       <div className="mb-4 flex gap-2 justify-center md:justify-end">
@@ -75,8 +77,18 @@ const AllQueries = () => {
       </div>
 
       {/* Responsive Grid Layout */}
-      <div
-        className={`grid gap-4 ${
+
+   {loading?
+          (
+            <div className="flex justify-center items-center">
+              <div className="animate-spin rounded-full h-10 w-10 border-t-4 bg-teal-500"></div>
+            </div>
+          ):
+
+  
+
+      (<div
+        className={`grid gap-4  ${
           gridColumns === 1
             ? "grid-cols-1"
             : gridColumns === 2
@@ -103,7 +115,9 @@ const AllQueries = () => {
                 } rounded-2xl`}
               />
             </div>
-            <div className={gridColumns === 1 ? "flex-1" : "w-full"}>
+            {/*  */}
+            <div className={gridColumns === 1 ? "flex-1" : "w-full"} 
+            >
               <h3 className="text-lg font-bold mb-2">{query.queryTitle}</h3>
               <p className="text-sm mb-2">
                 <strong>Product Name:</strong> {query.productName}
@@ -117,17 +131,23 @@ const AllQueries = () => {
               <p className="text-sm mb-2 flex-grow">
                 <strong>Recommendations:</strong> {query.recommendationCount}
               </p>
+
+            
               <button
                 onClick={() => handleRecommend(query._id)}
-                className="btn btn-primary w-full"
+                className="btn btn-primary bg-[#578FCA] w-full"
               >
                 Recommend
               </button>
-            </div>
+              </div>
           </div>
         ))}
+  
       </div>
+      )}
+      
     </div>
+
   );
 };
 

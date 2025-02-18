@@ -1,25 +1,38 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeaturedCategories from "../components/FeaturedCategories";
 import Testimonials from "../components/Testimonial";
-import Loading from "../components/Loading";
+
 
 
 const Home = () => {
      const navigate = useNavigate();
     const loader = useLoaderData();
     console.log(loader);
-    const [queries,setQueries] = useState(loader);
+    const [queries,setQueries] = useState([]);
+    const [loading,setLoading] = useState(true);
 
     const handleRecomend =(_id) =>{
         navigate(`/queryDetails/${_id}`);
     }
     
+
+
+
+    useEffect(()=>{
+      if(loader) {
+        setQueries(loader);
+        setLoading(false)
+      }
+    },[loader])
+    
+    
     
     return (
 
- 
+   
+    
 
       
       
@@ -28,9 +41,7 @@ const Home = () => {
    <div className="w-full mb-9 pb-4 mt-6">
       <HeroSlider></HeroSlider>
     </div>
-    {Loading
-    
-    }
+ 
     <div className="text-center mb-12 px-5">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
                     <span className="text-[#578FCA]">Recently</span> <span className="text-[#578FCA]">Added Queries</span>
@@ -39,12 +50,24 @@ const Home = () => {
                     Explore the recent product-related queries, including detailed descriptions, reasons, and recommendations.
                 </p>
             </div>
+
+
+
+
+
+
+            {loading?
+      (  <div className="flex justify-center items-center h-40">
+                <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-teal-500"></div>
+        </div>)
+
+        :(
+
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 w-3/4 mx-auto">
         {queries.slice(0,6).map((query) => (
-      
-     
-
-            
+           
           <div key={query._id} className="card bg-white shadow-md p-4 border rounded-xl">
                 <div className = "relative p-2">
                 <img src={query.productImageUrl} alt={query.productName} className = "w-full h-48 object-contain rounded-2xl"/>
@@ -74,6 +97,9 @@ const Home = () => {
         
         ))}
       </div>
+      )}
+
+
          <div className="my-8">
             <FeaturedCategories/>
             
