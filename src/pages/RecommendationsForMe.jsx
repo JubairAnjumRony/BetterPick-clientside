@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState,  } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
-import Loading from '../components/Loading';
+
 
 const RecommendationsForMe = () => {
   const [recommendations, setRecommendations] = useState([]);

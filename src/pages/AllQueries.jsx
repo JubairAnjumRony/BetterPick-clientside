@@ -59,10 +59,10 @@ const AllQueries = () => {
       <h2 className="text-2xl font-bold mb-4 text-blue-300 flex justify-center">All Queries</h2>
 
       {/* Layout Toggle Buttons */}
-     <div className="flex justify-between items-center">
+     <div className="flex px-2 justify-between items-center">
 
       <div>
-        <button className="btn btn-primary bg-[#578FCA]" onClick ={()=>handleSort('count')}>Sort By Recomend</button>
+        <button className="btn btn-primary bg-[#578FCA] mb-4"  onClick ={()=>handleSort('count')}>Sort By Recomend</button>
       </div>
 
      <div className="mb-4 flex gap-2 justify-center md:justify-end">

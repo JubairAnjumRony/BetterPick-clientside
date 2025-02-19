@@ -1,6 +1,6 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FeaturedCategories from "../components/FeaturedCategories";
 import Testimonials from "../components/Testimonial";
 import Faq from "../components/Faq";
@@ -8,9 +8,10 @@ import Faq from "../components/Faq";
 
 
 const Home = () => {
+  const featuredRef = useRef(null);
      const navigate = useNavigate();
     const loader = useLoaderData();
-    console.log(loader);
+    // console.log(loader);
     const [queries,setQueries] = useState([]);
     const [loading,setLoading] = useState(true);
 
@@ -28,7 +29,9 @@ const Home = () => {
       }
     },[loader])
     
-    
+    const scrollToFeatured = ()=>{
+      featuredRef.current?.scrollIntoView({behavior:"smooth"});
+    };
     
     return (
 
@@ -40,7 +43,7 @@ const Home = () => {
    <div className="w-full mx-auto  mt-4">
 
    <div className="w-full mb-9 pb-4 mt-6">
-      <HeroSlider></HeroSlider>
+      <HeroSlider scrollToFeatured={scrollToFeatured}></HeroSlider>
     </div>
  
     <div className="text-center mb-12 px-5">
@@ -102,7 +105,7 @@ const Home = () => {
 
 
          <div className="my-8">
-            <FeaturedCategories/>
+            <FeaturedCategories ref={featuredRef}/>
             
             </div>
 

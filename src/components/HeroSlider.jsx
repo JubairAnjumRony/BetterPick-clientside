@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { A11y, Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Fade } from "react-awesome-reveal";
 
-const HeroSlider = () => {
+const HeroSlider = ({scrollToFeatured}) => {
     return (
         <div className ="">
         <Swiper
@@ -42,7 +42,7 @@ const HeroSlider = () => {
               </p>
               </Fade>
               <Link to="/">
-                <button className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
+                <button onClick={scrollToFeatured} className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
                   Get Started
                 </button>
               </Link>
@@ -71,7 +71,7 @@ const HeroSlider = () => {
               </p>
               </Fade>
               <Link to="/" >
-                <button className="btn text-[#578FCA] border-none">
+                <button onClick={scrollToFeatured} className="btn text-[#578FCA] border-none">
                   Get Started
                 </button>
               </Link>
@@ -100,7 +100,7 @@ const HeroSlider = () => {
               </p>
               </Fade>
               <Link to="/" clas>
-                <button className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
+                <button onClick={scrollToFeatured} className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
                   Get Started
                 </button>
               </Link>
