@@ -55,6 +55,8 @@ const Navbar = () => {
            <li><NavLink to="/recommendationsForMe">Recomendations For Me</NavLink></li>
            <li><NavLink to="/myqueries">My Queries</NavLink></li>
            <li><NavLink to="/myRecomendations">My Recomendations</NavLink></li>
+           <li><NavLink to="/dashboard/myProfile">Dashboard</NavLink></li>
+
       
        
        

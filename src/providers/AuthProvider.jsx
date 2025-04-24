@@ -96,10 +96,17 @@ useEffect(()=>{
 ;
 
 
-   const updateUserProfile = (updatedData) => {
-       setLoading(true);
-       return updateProfile(auth.currentUser, updatedData);
-     };
+//    const updateUserProfile = (updatedData) => {
+//        setLoading(true);
+//        return updateProfile(auth.currentUser, updatedData);
+//      };
+
+
+const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photo
+    });
+}
 
      function resetPass(email) {
        return sendPasswordResetEmail(auth, email);

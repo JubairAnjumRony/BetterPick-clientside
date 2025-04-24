@@ -22,6 +22,7 @@ import UpdateQueries from './pages/UpdateQueries';
 import QueryDetails from './pages/QueryDetails';
 import RecommendationsForMe from './pages/RecommendationsForMe';
 import Dashboard from './pages/Dashboard';
+import MyProfile from './pages/MyProfile';
 
 const router = createBrowserRouter([
     {
@@ -84,7 +85,14 @@ const router = createBrowserRouter([
         <PrivateRoute>
           <Dashboard></Dashboard>
         </PrivateRoute>
-      )
+      ),
+      errorElement: <ErrorPage></ErrorPage>,
+      children:[
+        {
+          path:"myProfile",
+          element:<MyProfile></MyProfile>
+        }
+      ]
     }
 
 ]);
