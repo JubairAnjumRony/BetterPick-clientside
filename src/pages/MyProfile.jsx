@@ -66,7 +66,7 @@ const MyProfile = () => {
 						 <title>Dashboard || MyProfile</title>
 					 </Helmet> */}
       <div className="text-center bg-slate-200 dark:bg-gray-800 min-h-screen">
-        <h1 className="text-4xl text-sky-500 mb-8">My Profile</h1>
+        <h1 className="text-4xl text-[#578FCA] mb-8">My Profile</h1>
 
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
           <div className="avatar mx-auto mt-14">
@@ -116,7 +116,7 @@ const MyProfile = () => {
               </div>
 
               {/* Update Button */}
-              <button className="btn bg-sky-500 text-white">
+              <button className="btn bg-blue-600 text-white">
                 Update Profile <MdOutlineEdit />
               </button>
             </form>

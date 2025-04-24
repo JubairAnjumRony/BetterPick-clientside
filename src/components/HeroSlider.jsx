@@ -25,7 +25,7 @@ const HeroSlider = ({scrollToFeatured}) => {
         <div
           className="hero h-[500px] rounded-xl shadow-2xl"
           style={{
-            backgroundImage: "url('https://i.ibb.co.com/3S1g7xq/concept-recommendation-business-technology-internet-314054647.webp')",
+            backgroundImage: "url('https://i.ibb.co.com/Mc5ydHn/ai-generated-8131432-1280.png')",
           }}
         >
           <div className="hero-overlay"></div>
