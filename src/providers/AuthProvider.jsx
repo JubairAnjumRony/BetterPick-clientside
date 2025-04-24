@@ -8,6 +8,24 @@ export const AuthContext = createContext(null);
 
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
+
+
+    const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+  
+const handleToggle = (e) =>{
+  if(e.target.checked) {
+    setTheme("dark");
+  }else{
+    setTheme("light");
+  }
+}
+
+useEffect(()=>{
+    localStorage.setItem("theme",theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme",localTheme);
+  },[theme]);
+
    const [user,setUser] =useState(null);
    const [loading,setLoading] = useState(true);
  
@@ -85,7 +103,7 @@ const AuthProvider = ({children}) => {
            loading,
            signInWithGoogle,
            createUser,signInUser,user,setUser,signOutUser,
-           resetPass,updateUserProfile
+           resetPass,updateUserProfile,theme,handleToggle
        }
    
    return (

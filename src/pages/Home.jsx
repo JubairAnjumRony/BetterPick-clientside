@@ -69,10 +69,10 @@ const Home = () => {
 
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 w-3/4 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 w-3/4 mx-auto">
         {queries.slice(0,6).map((query) => (
            
-          <div key={query._id} className="card bg-white shadow-md p-4 border rounded-xl">
+          <div key={query._id} className="card bg-white dark:bg-black shadow-md p-4 border rounded-xl">
                 <div className = "relative p-2">
                 <img src={query.productImageUrl} alt={query.productName} className = "w-full h-48 object-contain rounded-2xl"/>
              

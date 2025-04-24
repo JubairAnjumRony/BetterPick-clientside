@@ -6,16 +6,20 @@ body {
     @apply font-inter;
   }
 
+  
+  /* @custom-variant dark (&:where(.dark, .dark *)) */
+
   @layer base {
     html[data-theme='light'] {
       --text-color: #111827; /* Dark Gray for Light Mode */
     }
     html[data-theme='dark'] {
-      --text-color: #010309; /* Soft White for Dark Mode */
-    }
+      --text-color: white;   /* Soft White for Dark Mode */
+      /* --bg-color: grey; */
+    } 
   
     body {
       color: var(--text-color);
     }
-  }
+  } 
   

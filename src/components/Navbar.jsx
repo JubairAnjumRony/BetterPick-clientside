@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Link, NavLink } from "react-router-dom";
@@ -11,22 +11,23 @@ import logo from '../assets/logo.webp'
 
 const Navbar = () => {
 
-
-    const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+    // const AuthContext = createContext(null);
+    // const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
   
-    const handleToggle = (e) =>{
-      if(e.target.checked) {
-        setTheme("dark");
-      }else{
-        setTheme("light");
-      }
-    }
+    // const handleToggle = (e) =>{
+    //   if(e.target.checked) {
+    //     setTheme("dark");
+    //   }else{
+    //     setTheme("light");
+    //   }
+    // }
+    const {theme,handleToggle} = useContext(AuthContext)
   
-    useEffect(()=>{
-      localStorage.setItem("theme",theme);
-      const localTheme = localStorage.getItem("theme");
-      document.querySelector("html").setAttribute("data-theme",localTheme);
-    },[theme]);
+    // useEffect(()=>{
+    //   localStorage.setItem("theme",theme);
+    //   const localTheme = localStorage.getItem("theme");
+    //   document.querySelector("html").setAttribute("data-theme",localTheme);
+    // },[theme]);
       
       const {user,signOutUser} = useContext(AuthContext);
       // console.log(user);
@@ -219,7 +220,7 @@ const Navbar = () => {
   </div>
          </div>
       </div>
-      );
+      )
   };
   
   export default Navbar;
