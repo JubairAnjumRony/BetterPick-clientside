@@ -147,7 +147,8 @@ const Navbar = () => {
      data-tooltip-id="my-tooltip" data-tooltip-content="Click to Toggle theme!"
       type="checkbox"
       onChange={handleToggle}
-      checked={theme === "light" ? false : true}
+      // checked={theme === "light" ? false : true}
+      checked={theme === "dark" ?  true: false}
       value="synthwave"
       className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1" />
       <Tooltip id="my-tooltip" />

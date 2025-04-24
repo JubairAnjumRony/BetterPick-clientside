@@ -24,6 +24,13 @@ useEffect(()=>{
     localStorage.setItem("theme",theme);
     const localTheme = localStorage.getItem("theme");
     document.querySelector("html").setAttribute("data-theme",localTheme);
+
+    if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    
   },[theme]);
 
    const [user,setUser] =useState(null);

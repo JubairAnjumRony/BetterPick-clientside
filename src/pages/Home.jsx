@@ -36,7 +36,7 @@ const Home = () => {
     return (
 
    
-    
+
 
       
       
@@ -45,7 +45,8 @@ const Home = () => {
    <div className="w-full mb-9 pb-4 mt-6">
       <HeroSlider scrollToFeatured={scrollToFeatured}></HeroSlider>
     </div>
- 
+       
+       
     <div className="text-center mb-12 px-5">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
                     <span className="text-[#578FCA]">Recently</span> <span className="text-[#578FCA]">Added Queries</span>
@@ -72,9 +73,9 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 w-3/4 mx-auto">
         {queries.slice(0,6).map((query) => (
            
-          <div key={query._id} className="card bg-white dark:bg-black shadow-md p-4 border rounded-xl">
+          <div key={query._id} className="card bg-white dark:bg-gray-800 shadow-md p-4 border rounded-xl">
                 <div className = "relative p-2">
-                <img src={query.productImageUrl} alt={query.productName} className = "w-full h-48 object-contain rounded-2xl"/>
+                <img src={query.productImageUrl} alt={query.productName} className = "w-56 h-48 object-contain rounded-2xl"/>
              
             </div>
             <h3 className="text-lg font-semibold mb-2"><span className="font-bold">Query: </span>{query.queryTitle}</h3>
