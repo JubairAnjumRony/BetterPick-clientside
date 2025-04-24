@@ -65,7 +65,7 @@ const MyProfile = () => {
       {/* <Helmet>
 						 <title>Dashboard || MyProfile</title>
 					 </Helmet> */}
-      <div className="text-center bg-slate-200 min-h-screen">
+      <div className="text-center bg-slate-200 dark:bg-gray-800 min-h-screen">
         <h1 className="text-4xl text-sky-500 mb-8">My Profile</h1>
 
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">

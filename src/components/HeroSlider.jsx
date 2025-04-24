@@ -25,7 +25,7 @@ const HeroSlider = ({scrollToFeatured}) => {
         <div
           className="hero h-[500px] rounded-xl shadow-2xl"
           style={{
-            backgroundImage: "url('https://i.ibb.co.com/KzLZ1yv/image-2.jpg')",
+            backgroundImage: "url('https://i.ibb.co.com/3S1g7xq/concept-recommendation-business-technology-internet-314054647.webp')",
           }}
         >
           <div className="hero-overlay"></div>
@@ -33,7 +33,7 @@ const HeroSlider = ({scrollToFeatured}) => {
             <div className="max-w-lg">
               <Fade cascade>
               <h1 className="mb-5 text-5xl font-bold text-black">
-                Discover Your Path
+                Discover Your Product
               </h1>
               <p className="mb-5 text-black">
                 Unlock your true potential with expert Query counseling.
@@ -62,7 +62,7 @@ const HeroSlider = ({scrollToFeatured}) => {
             <div className="max-w-lg">
               <Fade cascade>
               <h1 className="mb-5 text-5xl font-bold text-black">
-                Shape Your Future
+              Make Best Decesion
               </h1>
               <p className="mb-5 text-black">
                 Find clarity in your career decisions with tailored advice and
@@ -91,7 +91,7 @@ const HeroSlider = ({scrollToFeatured}) => {
             <div className="max-w-lg">
               <Fade cascade>
               <h1 className="mb-5 text-5xl font-bold text-black">
-                Empowering Career Choices
+                Empowering Purchasing Choices
               </h1>
               <p className="mb-5 text-black ">
                 Connect with career experts and access top-notch resources to

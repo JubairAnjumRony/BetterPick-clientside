@@ -40,9 +40,9 @@ const Home = () => {
 
       
       
-   <div className="w-full mx-auto  mt-4">
+   <div className="w-full mx-auto  mt-0">
 
-   <div className="w-full mb-9 pb-4 mt-6">
+   <div className="w-full mb-9 pb-4 pt-1">
       <HeroSlider scrollToFeatured={scrollToFeatured}></HeroSlider>
     </div>
        
