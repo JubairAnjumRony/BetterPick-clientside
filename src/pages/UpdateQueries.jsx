@@ -89,8 +89,8 @@ const UpdateEquipments = () => {
     };
   
       return (
-        <div className="mt-6 mb-6">
-        <form onSubmit={handleUpdate} className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg">
+        <div className="mt-6 mb-6 ">
+        <form onSubmit={handleUpdate} className="max-w-lg mx-auto bg-white dark:bg-gray-800 p-6 shadow-md rounded-lg">
         <div>
           <label className="block font-medium">Product Name</label>
           <input
