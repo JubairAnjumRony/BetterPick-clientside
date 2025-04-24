@@ -112,7 +112,7 @@ const QueryDetails = () => {
     <div className="container w-3/4 mx-auto p-6">
     {queryDetails ? (
       <div>
-        <h2 className="text-2xl font-bold">{queryDetails.queryTitle}</h2>
+        <h2 className="text-2xl text-[#578FCA] font-bold">{queryDetails.queryTitle}</h2>
         <p>Created by: {user.displayName}</p>
         <img
           src={user.photoURL}
@@ -129,8 +129,8 @@ const QueryDetails = () => {
     )}
 
           {/* Add Recommendation Section */}
-          <div className="bg-gray-100 p-4 rounded mb-6">
-            <h3 className="text-xl font-bold mb-4">Add a Recommendation</h3>
+          <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded mb-6">
+            <h3 className="text-xl text-[#578FCA] font-bold mb-4">Add a Recommendation</h3>
             <form onSubmit={handleFormSubmit}>
               <input
                 type="text"
@@ -177,8 +177,8 @@ const QueryDetails = () => {
           </div>
 
           {/* All Recommendations */}
-          <div className="bg-white shadow-md rounded p-4">
-            <h3 className="text-xl font-bold mb-4">All Recommendations</h3>
+          <div className="bg-white dark:bg-gray-800 shadow-md rounded p-4">
+            <h3 className="text-xl text-[#578FCA] font-bold mb-4">All Recommendations</h3>
             {recommendations.length === 0 ? (
               <p>No recommendations yet.</p>
             ) : (
