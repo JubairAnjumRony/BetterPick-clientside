@@ -35,11 +35,11 @@ const HeroSlider = ({scrollToFeatured}) => {
               <h1 className="mb-5 text-5xl font-bold text-black">
                 Discover Your Product
               </h1>
-              <p className="mb-5 text-black">
+              {/* <p className="mb-5 text-black">
                 Unlock your true potential with expert Query counseling.
                 Explore personalized guidance, resources, and tools to navigate
                 your professional journey with confidence.
-              </p>
+              </p> */}
               </Fade>
               <Link to="/">
                 <button onClick={scrollToFeatured} className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
@@ -64,11 +64,11 @@ const HeroSlider = ({scrollToFeatured}) => {
               <h1 className="mb-5 text-5xl font-bold text-black">
               Make Best Decesion
               </h1>
-              <p className="mb-5 text-black">
+              {/* <p className="mb-5 text-black">
                 Find clarity in your career decisions with tailored advice and
                 insights. Your aspirations deserve the right direction—start
                 building your dream future today.
-              </p>
+              </p> */}
               </Fade>
               <Link to="/" >
                 <button onClick={scrollToFeatured} className="btn text-[#578FCA] border-none">
@@ -93,11 +93,11 @@ const HeroSlider = ({scrollToFeatured}) => {
               <h1 className="mb-5 text-5xl font-bold text-black">
                 Empowering Purchasing Choices
               </h1>
-              <p className="mb-5 text-black ">
+              {/* <p className="mb-5 text-black ">
                 Connect with career experts and access top-notch resources to
                 make informed decisions. Your success starts with the right
                 guidance—let’s take the first step together.
-              </p>
+              </p> */}
               </Fade>
               <Link to="/" clas>
                 <button onClick={scrollToFeatured} className="btn bg-success-dark hover:bg-success-primary-500 text-[#578FCA] border-none">
