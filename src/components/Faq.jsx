@@ -64,7 +64,7 @@ const Faq = () => {
                     {/* <Lottie className="h-[350px] md:h-[400px] lg:h-[600px]" animationData={LottieFAQ} /> 
 
                 </div>*/}
-                <div className="col-span-3 space-y-6">
+                <div className="col-span-3 space-y-6 ">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
@@ -73,9 +73,9 @@ const Faq = () => {
                         >
                             <div
                                 onClick={() => toggleFAQ(index)}
-                                className="flex justify-between items-center bg-gray-100 p-5 cursor-pointer"
+                                className="flex justify-between items-center bg-gray-100 dark:bg-gray-800  p-5 cursor-pointer"
                             >
-                                <h3 className="text-lg font-medium text-gray-800">{faq.question}</h3>
+                                <h3 className="text-lg font-medium text-gray-800 dark:text-white">{faq.question}</h3>
                                 <span
                                     className={`text-2xl font-bold text-indigo-500 transform transition-transform ${activeIndex === index ? "rotate-180" : "rotate-0"
                                         }`}
@@ -84,7 +84,7 @@ const Faq = () => {
                                 </span>
                             </div>
                             {activeIndex === index && (
-                                <div className="bg-white px-5 py-4 text-gray-700">
+                                <div className="bg-white dark:bg-gray-800 px-5 py-4 text-gray-700 dark:text-white">
                                     <p>{faq.answer}</p>
                                 </div>
                             )}

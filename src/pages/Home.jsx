@@ -75,7 +75,7 @@ const Home = () => {
            
           <div key={query._id} className="card bg-white dark:bg-gray-800 shadow-md p-4 border rounded-xl">
                 <div className = "relative p-2">
-                <img src={query.productImageUrl} alt={query.productName} className = "w-56 h-48 object-contain rounded-2xl"/>
+                <img src={query.productImageUrl} alt={query.productName} className = "w-56 h-48 object-cover rounded-2xl"/>
              
             </div>
             <h3 className="text-lg font-semibold mb-2"><span className="font-bold">Query: </span>{query.queryTitle}</h3>

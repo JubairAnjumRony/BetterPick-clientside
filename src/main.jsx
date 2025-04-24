@@ -21,6 +21,7 @@ import MyRecomendations from './pages/MyRecomendations';
 import UpdateQueries from './pages/UpdateQueries';
 import QueryDetails from './pages/QueryDetails';
 import RecommendationsForMe from './pages/RecommendationsForMe';
+import Dashboard from './pages/Dashboard';
 
 const router = createBrowserRouter([
     {
@@ -76,7 +77,16 @@ const router = createBrowserRouter([
          }
 
       ]
+    },
+    {
+      path:"dashboard",
+      element: (
+        <PrivateRoute>
+          <Dashboard></Dashboard>
+        </PrivateRoute>
+      )
     }
+
 ]);
 
 createRoot(document.getElementById('root')).render(

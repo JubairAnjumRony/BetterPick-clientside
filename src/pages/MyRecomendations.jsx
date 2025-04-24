@@ -86,7 +86,7 @@ const [loading,setLoading] = useState(true);
 
    
         <div>
-      <table className="table-auto w-full border-collapse border text-gray-500 border-gray-300">
+      <table className="table-auto w-full border-collapse border  border-gray-300">
         <thead>
 
           <tr>

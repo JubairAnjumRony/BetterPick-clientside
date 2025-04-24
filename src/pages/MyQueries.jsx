@@ -81,7 +81,7 @@ const MyQueries = () => {
   return (
     <div className='w-3/4 mx-auto'>
     
-    <div className="bg-gray-100 ">
+    <div className="">
       {/* Banner Section */}
       <div className="bg-[#578FCA] text-white py-8 text-center">
         <h1 className="text-4xl font-bold mb-4">My Queries</h1>
@@ -114,11 +114,11 @@ const MyQueries = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {equipments.map((item) => (
-              <div key={item._id} className="bg-white shadow-md rounded-lg p-4 flex flex-col">
+              <div key={item._id} className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex flex-col">
                 <img
                   src={item.productImageUrl}
                   alt={item.itemName}
-                  className="w-full h-40 object-cover rounded-md mb-4"
+                  className="w-56 h-40 object-cover rounded-md mb-4"
                 />
                 <h2 className="text-xl font-bold mb-2">{item.queryTitle}</h2>
                 <p className="text-gray-600">Product: {item.productName}</p>

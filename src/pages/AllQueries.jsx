@@ -112,7 +112,7 @@ const AllQueries = () => {
         {queries.map((query) => (
           <div
             key={query._id}
-            className={`card bg-white  shadow-md p-4 border rounded-xl ${
+            className={`card bg-white dark:bg-gray-800 shadow-md p-4 border rounded-xl ${
               gridColumns === 1 ? "flex flex-col md:flex-row gap-4 items-center" :  "flex flex-col"
             }`}
           >
@@ -123,7 +123,7 @@ const AllQueries = () => {
                 className={`${
                   gridColumns === 1
                     ? "w-32 h-32 object-cover"
-                    : "w-full object-contain sm:h-64 md:h-48 lg:h-48 "
+                    : "w-56 object-cover sm:h-64 md:h-48 lg:h-48 "
                 } rounded-2xl`}
               />
             </div>
